@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mandelbrot Set</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Dimension </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="form : ${FormBean}">
+        <td><span th:text="${form.min_x}"> min_x </span></td>
+        <td><span th:text="${form.max_x}"> max_x </span></td>
+        <td><span th:text="${form.min_x}"> min_x </span></td>
+        <td><span th:text="${form.max_x}"> max_x </span></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<form action="#" th:action="@{/dimension}" th:object="${FormBean}" method="post">
+    <p>min_x: <input type="text" th:field="*{min_x}" /></p>
+    <p>max_x: <input type="text" th:field="*{max_x}" /></p>
+    <p>min_y: <input type="text" th:field="*{min_y}" /></p>
+    <p>min_y: <input type="text" th:field="*{max_y}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
